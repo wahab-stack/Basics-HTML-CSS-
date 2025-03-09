@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Carousel with YouTube Cards</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #62777a76;
+      }
+
+      .carousel {
+        width: 80%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .carousel-item {
+        min-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .youtube-card {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      footer {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 0.9em;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="" class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <div class="youtube-card" style="background-color: #666">
+            <h3>Youtube Card 1</h3>
+            <img
+              src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+              alt=""
+            />
+            <p>Watch now</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="youtube-card" style="background-color: #666">
+            <h3>Youtube Card 2</h3>
+            <img
+              src="https://images.pexels.com/photos/3577561/pexels-photo-3577561.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+              alt=""
+            />
+            <p>Watch now</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="youtube-card" style="background-color: #666">
+            <h3>Youtube Card 3</h3>
+            <img
+              src="https://images.pexels.com/photos/7775638/pexels-photo-7775638.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+              alt=""
+            />
+            <p>Watch now</p>
+          </div>
+        </div>
+      </div>
+      <a href="" class="carouse-control-prev" data-slide="prev">
+        <span class="carouse-control-prev-icon"></span>
+      </a>
+      <a href="" class="carouse-control-next-icon" data-slide="next">
+        <span class="carouse-control-next-icon"></span>
+      </a>
+    </div>
+
+    <footer>
+      <p>&copy; Wahabay</p>
+    </footer>
+  </body>
+  <script>
+    let currentIndex = 0;
+    const carouselInner = document.querySelector(".carousel-inner");
+    const totalItems = document.querySelectorAll(".carousel-item").length;
+
+    function moveCarousel() {
+      currentIndex = (currentIndex + 1) % totalItems;
+      const offset = -currentIndex * 100;
+      carouselInner.style.transform = `translateX(${offset}%)`;
+    }
+
+    setInterval(moveCarousel, 3000);
+  </script>
+</html>
